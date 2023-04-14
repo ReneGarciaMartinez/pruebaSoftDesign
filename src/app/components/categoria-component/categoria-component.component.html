@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4" *ngFor="let categoria of categorias">
+            <div class="card">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-outline-danger" (click)="eliminar(categoria.id)">X</button>
+                  </div>
+                <div class="card-body">
+                    <p class="card-text">{{categoria.id}}</p>
+                    <h5 class="card-title">{{categoria.clave}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{categoria.nombre}}</h6>
+                    <p class="card-text">{{categoria.fechaCreado | date}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

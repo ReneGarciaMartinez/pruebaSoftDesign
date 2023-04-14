@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'prueba';
+ art_comp='articulos';
+ cat_comp='categorias';
+  
+agregarArticulo(){
+  this.art_comp='crear_articulo';
+}
+verArticulos(){
+  this.art_comp='articulos';
+}
+// categorias
+
+cambiarCategoria(opc:any){
+  this.art_comp=opc;
+  console.log(this.art_comp);
+  
+}
 }

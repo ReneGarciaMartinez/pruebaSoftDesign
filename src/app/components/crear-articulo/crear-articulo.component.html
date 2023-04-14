@@ -1,0 +1,63 @@
+<div class="container">
+            <form autocomplete="off" [formGroup]="miFormulario">
+                <div class="row mt-3">
+                    <div class="col-lg-7">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" formControlName="clave" placeholder="Ingresa la clave">
+                            <span class="form-text text-danger" *ngIf="campoValido('clave')">Campo requerido</span>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" formControlName="categoria"
+                                placeholder="Ingresa la categoria">
+                            <span class="form-text text-danger" *ngIf="campoValido('categoria')">Campo requerido</span>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" formControlName="nombre" placeholder="Ingresa el nombre del producto">
+                            <span class="form-text text-danger" *ngIf="campoValido('nombre')">Campo requerido</span>
+                        </div>
+                    </div>  
+                    <div class="col-lg-4">
+                            <div class=" checkBox mb-3">
+                                <label for="">Activo</label>
+                                <input type="checkbox" formControlName="activo" class="form-control-check">
+                                <span class="form-text text-danger" *ngIf="checkbox('activo')">Campo requerido</span>
+                            </div>
+                   
+                        <div class="input_precios">
+                            <div class="input-group">
+                                <input type="number" class="form-control" formControlName="precios"
+                                    placeholder="Ingresa el precio" (keyup.enter)="agregarPrecio(miFormulario.value.precios)">
+                                <span class="form-text text-danger" *ngIf="campoValido('precios')">Campo requerido</span>
+                                <button type="button" class="btn btn-primary" (click)="agregarPrecio(miFormulario.value.precios)">
+                                    Añadir
+                                </button>
+                            </div>
+                        </div>
+                        <div class="precios">
+                            <h5>Precios</h5>
+                            <div *ngFor="let pre of precio">
+                                    <div class="row m-3">
+                                        <div class="col-6">
+                                            <span>{{pre.precio}}</span>
+                                        </div>
+                                        <div class="col-6">
+                                            <button type="button" (click)="eliminar(pre.precio)" class="btn btn-danger btn-sm">Eliminar</button>
+                                        
+                                        </div>
+
+                                    </div>
+                                    <hr>
+                            </div>
+                        </div>
+                    </div>                   
+                </div>
+                <div class="container text-center">
+                    <div class="row justify-content-md-center">
+                        <div class="col-lg-2 p-3" >
+                            <button type="submit" disabled *ngIf="!miFormulario.valid" class="btn btn-outline-success"><a>Guardar</a></button>
+                            <button type="submit" *ngIf="miFormulario.valid" class="btn btn-success"(click)="crearArticulo()"><a>Guardar</a></button>
+                        </div>    
+                    </div>
+                    </div>              
+            </form>
+</div>
