@@ -22,18 +22,16 @@ export class ArticulosComponent implements OnInit {
   getArt(){
     this.VisorusSvc.getArticulos().subscribe((data: any) => {
       this.articulos = data.data;
-      console.log(this.articulos);
     });
   }
 
   editar(id: number){
-    this.router.navigate(['/form-articulo/',id])
+    this.router.navigate(['/crear-articulo',id]);
   }
 
   eliminar(id: number){
     console.log(id);
-    this.VisorusSvc.deleteArticulo(id).subscribe((data: any) => {
-      console.log(data);
+    this.VisorusSvc.deleteArticulo(id).subscribe((res: any) => {
       this.getArt();
       Swal.fire({
         position: 'top-end',

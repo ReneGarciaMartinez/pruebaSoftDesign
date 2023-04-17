@@ -11,6 +11,7 @@
                     <h6 class="card-subtitle mb-2 text-muted">{{categoria.nombre}}</h6>
                     <p class="card-text">{{categoria.fechaCreado | date}}</p>
                 </div>
+                <button class="btn btn-warning" (click)="editar(categoria.id)">Editar</button>
             </div>
         </div>
     </div>

@@ -1,0 +1,9 @@
+#list{
+    height: 180px;
+    overflow-y: scroll;
+   background-color: #ffffff!important;
+  }
+  .container{
+    background-color: #ebebeb;
+    border-radius: 10px;
+  }
