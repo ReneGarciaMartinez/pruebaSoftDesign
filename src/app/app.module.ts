@@ -9,6 +9,7 @@ import { ArticulosComponent } from './components/articulos/articulos.component';
 import { CrearArticuloComponent } from './components/crear-articulo/crear-articulo.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CrearCategoriaComponent } from './components/crear-categoria/crear-categoria.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CrearCategoriaComponent } from './components/crear-categoria/crear-cate
     CategoriaComponentComponent,
     ArticulosComponent,
     CrearArticuloComponent,
-    CrearCategoriaComponent
+    CrearCategoriaComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

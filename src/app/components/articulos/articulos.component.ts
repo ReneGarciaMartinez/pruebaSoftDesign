@@ -22,6 +22,8 @@ export class ArticulosComponent implements OnInit {
   getArt(){
     this.VisorusSvc.getArticulos().subscribe((data: any) => {
       this.articulos = data.data;
+      console.log(this.articulos);
+      
     });
   }
 

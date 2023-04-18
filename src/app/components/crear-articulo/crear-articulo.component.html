@@ -1,6 +1,6 @@
 <div class="container mb-2 mt-3">
     <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="id">
-        <button type="button" class="btn btn-success"  [routerLink]="['/index']" routerLinkActive="router-link-active" >Home</button>
+        <button type="button" class="btn btn-success"  [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</button>
       </div>
    <div class="row">
             <form autocomplete="off" [formGroup]="miFormulario">
@@ -54,11 +54,11 @@
                     <div class="row justify-content-md-center">
                         <div class="col-lg-12 p-3" *ngIf="!id" >
                             <button type="submit" disabled *ngIf="!miFormulario.valid" class="btn btn-outline-success"><a>Guardar</a></button>
-                            <button type="submit" *ngIf="miFormulario.valid" class="btn btn-success"(click)="actualizarArticulo()"><a>Guardar</a></button>
+                            <button type="submit" *ngIf="miFormulario.valid" class="btn btn-success"(click)="crearArticulo()"><a>Guardar</a></button>
                         </div> 
                         <div class="col-lg-12 p-3" *ngIf="id" >
-                            <button type="submit" disabled *ngIf="!miFormulario.valid" class="btn btn-outline-success"><a>Guardar</a></button>
-                            <button type="submit" *ngIf="miFormulario.valid" class="btn btn-success"(click)="actualizarArticulo()"><a>Guardar</a></button>
+                            <button type="submit" disabled *ngIf="!miFormulario.valid" class="btn btn-outline-success"><a>Actualizar</a></button>
+                            <button type="submit" *ngIf="miFormulario.valid" class="btn btn-success"(click)="actualizarArticulo()"><a>Actualizar</a></button>
                         </div>    
                     </div>
                     </div>              

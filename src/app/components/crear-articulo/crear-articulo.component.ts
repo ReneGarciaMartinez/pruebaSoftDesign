@@ -47,7 +47,7 @@ export class CrearArticuloComponent implements OnInit {
           activo: this.articulo?.activo,
         });
         for (const val of res.precios) {
-          this.agregarPrecio(val.precio);
+          this.agregarPrecioEditar(val.precio);
         }
       });
     } else {
@@ -89,6 +89,17 @@ export class CrearArticuloComponent implements OnInit {
       this.miFormulario.get('precios')?.reset();
     }
   }
+  agregarPrecioEditar(value: number) {
+    const result = this.precio.filter((n: any, i: any) => {
+      return n.precio == value;
+    });
+    if (result.length > 0) {
+     
+    } else {
+      this.precio.push({ precio: value });
+      this.miFormulario.get('precios')?.reset();
+    }
+  }
 
   eliminar(value: number) {
     const result = this.precio.filter((n: any, i: any) => {
@@ -109,14 +120,18 @@ export class CrearArticuloComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500,
           });
+          this.router.navigate(['/home']);
         }
       }
     );
+
   }
   // update articulo
 
   actualizarArticulo() {
+    console.log('antes de asignar',this.miFormulario.value);
     this.miFormulario.value.precios = this.precio;
+    console.log('despues de asignar',this.miFormulario.value,'id es: ',this.id);
     this.VisorusSvc.actualizarArticulo(this.id, this.miFormulario.value).subscribe((res: any) => {
         if (res.message) {
           Swal.fire({
@@ -126,6 +141,7 @@ export class CrearArticuloComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500,
           });
+          this.router.navigate(['/home']);
         }
       }
     );

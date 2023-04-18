@@ -12,8 +12,8 @@
                       <div *ngFor="let precio of articulo.precios">
                           <p class="card-text">${{precio.precio | number}}.00 MXN</p>
                       </div>
-                      <button class="btn btn-warning" (click)="editar(articulo.id)">Editar</button>
                     </div>
+                    <button class="btn btn-warning" (click)="editar(articulo.id)">Editar</button>
                 </div>
                 </div>
         </div>

@@ -19,7 +19,7 @@ export class CrearCategoriaComponent implements OnInit {
   });
     id:any;
     categoria:Categoria|any;
-  constructor(private fb: FormBuilder, private router: Router, private VisorusSvc:VisorusService, private activatedR:ActivatedRoute) { }
+  constructor(private fb: FormBuilder, private router: Router, private activatedR:ActivatedRoute, private VisorusSvc:VisorusService) { }
 
   ngOnInit(){
     this.id = this.activatedR.snapshot.params['id'];
@@ -51,6 +51,7 @@ export class CrearCategoriaComponent implements OnInit {
     console.log(this.miFormulario.value);
     this.VisorusSvc.createCategoria(this.miFormulario.value).subscribe((data: any) => {
       console.log(data);
+      
       if(data.message){
         Swal.fire({
           position: 'center',
@@ -59,8 +60,10 @@ export class CrearCategoriaComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         })
+       
       }
     });
+    this.router.navigate(['/home']);
   }
   //Actualizar
   actualizarCategoria() {
@@ -73,6 +76,7 @@ export class CrearCategoriaComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500,
           });
+          this.router.navigate(['/home']);
         }
       }
     );

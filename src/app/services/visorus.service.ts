@@ -17,7 +17,7 @@ export class VisorusService {
   getArticulo(id: any){
     return this.http.get(`${this.URL}/articulo/${id}`);
   }
-  actualizarArticulo(id:number, articulo: Articulo){
+  actualizarArticulo(id:number, articulo:any){
     return this.http.put(`${this.URL}/articulo/${id}`, articulo);
   }
   createArticulo(articulo: Articulo){
